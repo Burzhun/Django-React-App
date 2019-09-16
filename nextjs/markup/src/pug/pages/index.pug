@@ -1,0 +1,42 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Главная страница'
+  - var pageClass = 'index-page'
+
+
+block content
+  .grey__wrapp.hidden-mob
+    .container
+      .anchors.anchors-main
+        a(href='#about') О нас
+        a(href='#projects') Проекты
+        a(href='#new') Новые выпуски
+        a(href='#specials') Спецпроекты
+  .wrapper
+    include ../modules/about__front
+    include ../modules/projects
+  include ../modules/issue
+  include ../modules/special__project
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

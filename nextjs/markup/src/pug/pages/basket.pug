@@ -1,0 +1,36 @@
+extends ../layout/main
+
+block variables
+  - var title = 'basket страница'
+  - var pageClass = 'basket-page'
+
+
+block content
+  .container.container__basket
+    h3  в корзине (<span class='basket__count'>2</span>)
+    .basket__page.basket__wrapp
+      .basket__wrapp_left
+        .basket__chouse
+          .item__journal
+            button.item__journal_remove
+            .item__journal_img
+              img(src='/assets/img/journ6.png')
+            .item__journal_content
+              .item__journal_title National Geographic Россия
+              .item__journal_number_date <span>№188</span> (Апрель 2019)
+              .item__journal_price 999 ₽
+          .item__journal
+            button.item__journal_remove
+            .item__journal_img
+              img(src='/assets/img/journ6.png')
+            .item__journal_content
+              .item__journal_title National Geographic Россия
+              .item__journal_number_date <span>№188</span> (Апрель 2019)
+              .item__journal_price 999 ₽
+        .basket__price_all Итого: <span class='basket__price_all-count'>1998 ₽</span>
+      .basket__wrapp_right
+        form.basket__buy_form
+          p <span class='basket__count'>2</span> товара на сумму
+          .basket__price_all-count 1998 ₽
+          .btn.btn-red Оплатить и скачать
+          p.servise__terms  Нажимая на кнопку, вы соглашаетесь  с условиями обслуживания

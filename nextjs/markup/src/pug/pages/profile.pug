@@ -1,0 +1,168 @@
+extends ../layout/main
+
+block variables
+  - var title = 'profile страница'
+  - var pageClass = 'profile-page'
+
+
+block content
+  .grey__wrapp
+    .container
+      .anchors.anchors__profile
+        a(href='#profile').anchors__profile_active Профиль
+        a(href='#basket') Корзина (<span class='basket__count'>2</span>)
+        a(href='#deferred') Отложенное
+        a(href='#myJournals') Мои журналы
+  .container.container__profile
+    #profile.profile__active
+      form.profile__form
+        .profile__form_col
+          .profile__title Имя и фамилия:
+          p Акакий Зирбишфыв
+        .profile__form_col
+          .profile__title E-mail:
+          .profile__editing(hidden)
+            input(value='akakiy_zir@vesteros.ru' type='email'  placeholder='E-mail')
+            button(type='submit') ок
+          .editing_parag
+            p akakiy_zir@vesteros.ru
+            button.btn_pen
+              svg(width='20', height='20', viewBox='0 0 20 20', xmlns='http://www.w3.org/2000/svg')
+                path(d='M20 4.3L15.6 0L2.2 13.5C2.1 13.6 2 13.7 2 13.8L0 20L6.2 18C6.3 18 6.4 17.9 6.5 17.8L16.8 7.5L20 4.3ZM1.9 18.7L1.3 18L2.5 14.5L5.4 17.4L1.9 18.7Z')
+        .profile__form_col
+          .profile__title Имя и фамилия:
+          .profile__editing(hidden)
+            input(value='+79110010101' type='phone'  placeholder='Телефон')
+            button(type='submit') ок
+          .editing_parag
+            p +79110010101
+            button.btn_pen
+              svg(width='20', height='20', viewBox='0 0 20 20', xmlns='http://www.w3.org/2000/svg')
+                path(d='M20 4.3L15.6 0L2.2 13.5C2.1 13.6 2 13.7 2 13.8L0 20L6.2 18C6.3 18 6.4 17.9 6.5 17.8L16.8 7.5L20 4.3ZM1.9 18.7L1.3 18L2.5 14.5L5.4 17.4L1.9 18.7Z')
+    #basket.basket__wrapp
+      .basket__wrapp_left
+        .basket__chouse
+          .item__journal
+            button.item__journal_remove
+            .item__journal_img
+              img(src='/assets/img/journ6.png')
+            .item__journal_content
+              .item__journal_title National Geographic Россия
+              .item__journal_number_date <span>№188</span> (Апрель 2019)
+              .item__journal_price 999 ₽
+          .item__journal
+            button.item__journal_remove
+            .item__journal_img
+              img(src='/assets/img/journ6.png')
+            .item__journal_content
+              .item__journal_title National Geographic Россия
+              .item__journal_number_date <span>№188</span> (Апрель 2019)
+              .item__journal_price 999 ₽
+        .basket__price_all Итого: <span class='basket__price_all-count'>1998 ₽</span>
+      .basket__wrapp_right
+        form.basket__buy_form
+          p <span class='basket__count'>2</span> товара на сумму
+          .basket__price_all-count 1998 ₽
+          .btn.btn-red Оплатить и скачать
+          p.servise__terms  Нажимая на кнопку, вы соглашаетесь  с условиями обслуживания
+
+    #deferred
+      .archive__journals
+        .archive__journal
+          .archive__journal_img
+            img(src='/assets/img/journ6.png')
+          .archive__journal_content
+            .archive__journal_data
+              span №145
+              | 04.19
+            button.btn.btn_more Подробнее
+            button.btn.btn-red.add__product Купить номер
+        .archive__journal
+          .archive__journal_img
+            img(src='/assets/img/journ6.png')
+          .archive__journal_content
+            .archive__journal_data
+              span №145
+              | 04.19
+            button.btn.btn_more Подробнее
+            button.btn.btn-red.add__product Купить номер
+        .archive__journal
+          .archive__journal_img
+            img(src='/assets/img/journ6.png')
+          .archive__journal_content
+            .archive__journal_data
+              span №145
+              | 04.19
+            button.btn.btn_more Подробнее
+            button.btn.btn-red.add__product Купить номер
+        .archive__journal
+          .archive__journal_img
+            img(src='/assets/img/journ6.png')
+          .archive__journal_content
+            .archive__journal_data
+              span №145
+              | 04.19
+            button.btn.btn_more Подробнее
+            button.btn.btn-red.add__product Купить номер
+        .archive__journal
+          .archive__journal_img
+            img(src='/assets/img/journ6.png')
+          .archive__journal_content
+            .archive__journal_data
+              span №145
+              | 04.19
+            button.btn.btn_more Подробнее
+            button.btn.btn-red.add__product Купить номер
+    #myJournals
+      .archive__journals
+        .archive__journal
+          .archive__journal_img
+            img(src='/assets/img/journ6.png')
+          .archive__journal_content
+            .archive__journal_data
+              span №145
+              | 04.19
+            button.btn.btn_more Подробнее
+            a(href='#').btn.btn-download Скачать номер
+        .archive__journal
+          .archive__journal_img
+            img(src='/assets/img/journ6.png')
+          .archive__journal_content
+            .archive__journal_data
+              span №145
+              | 04.19
+            button.btn.btn_more Подробнее
+            a(href='#').btn.btn-download Скачать номер
+        .archive__journal
+          .archive__journal_img
+            img(src='/assets/img/journ6.png')
+          .archive__journal_content
+            .archive__journal_data
+              span №145
+              | 04.19
+            button.btn.btn_more Подробнее
+            a(href='#').btn.btn-download Скачать номер
+        .archive__journal
+          .archive__journal_img
+            img(src='/assets/img/journ6.png')
+          .archive__journal_content
+            .archive__journal_data
+              span №145
+              | 04.19
+            button.btn.btn_more Подробнее
+            a(href='#').btn.btn-download Скачать номер
+        .archive__journal
+          .archive__journal_img
+            img(src='/assets/img/journ6.png')
+          .archive__journal_content
+            .archive__journal_data
+              span №145
+              | 04.19
+            button.btn.btn_more Подробнее
+            a(href='#').btn.btn-download Скачать номер
+
+
+
+
+
+

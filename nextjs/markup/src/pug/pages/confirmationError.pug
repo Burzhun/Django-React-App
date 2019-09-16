@@ -1,0 +1,12 @@
+extends ../layout/main
+
+block variables
+  - var title = 'confirmationError страница'
+  - var pageClass = 'confirmationError-page'
+
+
+block content
+  .container.container__confirmation_error.container_mini
+    h3  Что-то пошло не так...
+    p Транзакция не была завершена. <br> Возможно, вы ошиблись при вводе данных.
+    button.btn.btn__repeat Попробовать еще раз

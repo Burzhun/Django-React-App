@@ -1,0 +1,22 @@
+.container__confirmation{
+  padding: 64px 0;
+  h3{
+    margin-bottom: 20px;
+  }
+}
+.confirmation__page{
+  margin: 44px 0 30px;
+  .item__journal{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #C4C4C4;
+    &_content{
+      max-width: 100%;
+    }
+    .btn{
+      margin-top: 25px;
+    }
+    & +.item__journal{
+      margin-top: 20px;
+    }
+  }
+}

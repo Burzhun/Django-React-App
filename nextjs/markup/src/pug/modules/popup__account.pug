@@ -1,0 +1,40 @@
+.popup.popup__account
+  .popup__content
+    button.popup__close.closeIcon
+    .popup__navigation
+      button.show__login.show__active <span>Вход</span>&nbsp;|&nbsp;
+      button.show__registration   <span>Регистрация</span>
+    .popup__login.popup__active
+      form
+        p
+          input(placeholder='Логин' required)
+        p
+          input(type='password' placeholder='Пароль' required)
+        .popup__login_btn
+          button(type='submit').btn.btn__login Войти
+          a(href='#').show__reset Забыли пароль?
+    .popup__reset
+      form
+        p Введите e-mail, указанный при регистрации
+        p
+          input(placeholder='E-mail' required)
+        .popup__login_btn
+          button(type='submit').btn.btn__reset восстановить пароль
+
+    .popup__registration
+      form
+        p
+          input(placeholder='E-mail' type='email' required)
+        p.duo
+          input(placeholder='Имя')
+          input(placeholder='Телефон' type='phone')
+        p
+          input(placeholder='Пароль (только латинские буквы и цифры)' type='email' required)
+        p
+          input(placeholder='Повторите пароль' type='email' required)
+        .custom__checkbox
+          label.custom__checkbox_container
+            | Я ознакомился/ась и принимаю условия <a href='#'>политики ООО «Ясно Паблишинг» в отношении обработки персональных данных</a> и <a href='#'>соглашения об условиях размещения материалов</a>
+            input(type='checkbox', checked='checked' required)
+            span.checkmark
+        button(type='submit').btn.btn__registration Зарегистрироваться

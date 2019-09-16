@@ -1,0 +1,10 @@
+!.gitignore
+!/**/.gitkeep
+
+
+npm-debud.log
+
+../.idea
+package-lock.json
+
+node_modules

@@ -1,0 +1,63 @@
+.storage{
+  padding: 81px 0 90px;
+  
+  &:nth-child(odd){
+    background: #F2F1F1;
+  }
+  &:last-child{
+    margin-bottom: -100px;
+  }
+  &__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 74px;
+  }
+  &__title{
+    font-weight: 500;
+    font-size: 36px;
+    text-transform: uppercase;
+  }
+  &__content{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &__logo{
+    margin-right: 75px;
+  }
+  &__journals{
+    display: flex;
+    width: 741px;
+    position: relative;
+    a{
+      position: relative;
+      display: block;
+      width: 261px;
+      height: 380px;
+      box-shadow: 4px 1px 10px rgba(0, 0, 0, 0.25);
+      transition: .3s ease;
+      &:hover{
+        transform: scale(1.02);
+        z-index: 7 !important;
+      }
+      &:first-child{
+        z-index: 5;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    @for $i from 2 through 5 {
+      a:nth-child(#{$i}){
+        position: absolute;
+        left: 120px * ($i - 1);
+        top: 0;
+        z-index: 5 - $i;
+      }
+    }
+  }
+}

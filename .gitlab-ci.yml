@@ -1,0 +1,85 @@
+stages:
+  - build
+  - deploy
+  - stop
+
+variables:
+    PROJECT_PREFIX: yasno-media
+    REVIEW_HOST: $CI_COMMIT_REF_SLUG-$PROJECT_PREFIX.review.moscowtimes.org
+
+Build Image:
+  stage: build
+  script:
+    - export COMMIT_TIME=$(git show -s --format=%ci $CI_COMMIT_SHA | awk '{print $1"-"$2}' | sed 's/:/-/g')
+    - export TAG=${CI_COMMIT_REF_SLUG}-${COMMIT_TIME}
+    - cd docker
+    - cp .env.prod .env
+    - docker-compose -p ${PROJECT_PREFIX} -f docker-compose-prod.yml build app nginx
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker-compose -p ${PROJECT_PREFIX} -f docker-compose-prod.yml push
+  only:
+    - release
+  tags:
+    - review
+
+deploy_prod:
+  stage: deploy
+  script:
+    - export COMMIT_TIME=$(git show -s --format=%ci $CI_COMMIT_SHA | awk '{print $1"-"$2}' | sed 's/:/-/g')
+    - export TAG=${CI_COMMIT_REF_SLUG}-${COMMIT_TIME}
+    - cd docker
+    - cp .env.prod .env
+    - docker login -u gitlab+deploy-token-6 -p VKpmBYywo58__PqsyUYj $CI_REGISTRY
+    - docker-compose -f docker-compose-prod.yml pull
+    - env $(cat .env | grep ^[A-Z] | xargs) docker stack deploy -c docker-compose-prod.yml --with-registry-auth --prune yasno-media
+  environment:
+    name: prod
+    url: https://yasno.media
+  only:
+    - release
+  when: manual
+  tags:
+    - prod
+
+
+deploy_review: &deploy_review
+  stage: deploy
+  script:
+    - cd docker
+    - cp .env.review .env
+    - docker-compose -p ${PROJECT_PREFIX}_${CI_COMMIT_REF_SLUG} -f docker-compose-review.yml up -d --build
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    url: https://$CI_COMMIT_REF_SLUG-$PROJECT_PREFIX.review.moscowtimes.org
+    on_stop: stop_review
+  only:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /#review/
+  tags:
+    - review
+  except:
+    - release
+
+deploy_review_manual:
+  <<: *deploy_review
+  when: manual
+  only:
+    - branches
+
+stop_review:
+  stage: stop
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    action: stop
+  script:
+    - cd docker
+    - cp .env.review .env
+    - docker-compose -p ${PROJECT_PREFIX}_${CI_COMMIT_REF_SLUG} -f docker-compose-review.yml down
+    - rm -rf /work/data/${PROJECT_PREFIX}_${CI_COMMIT_REF_SLUG}/
+  when: manual
+  only:
+    - branches
+  except:
+    - release
+  tags:
+    - review

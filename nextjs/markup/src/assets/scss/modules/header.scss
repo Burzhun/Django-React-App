@@ -1,0 +1,142 @@
+// header style
+
+header {
+  background: #FFFFFF;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  padding: 18px 0;
+  position: relative;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  position: relative;
+  .form__search_header{
+    position: absolute;
+    left: -25%;
+    top: 0;
+    width: 100%;
+    height: 32px;
+    align-items: center;
+    background: #fff;
+    z-index: 2;
+    min-width: 793px;
+    display: none;
+    input{
+      border: none;
+      background: none;
+      border-bottom: 1px solid #000;
+      height: 32px;
+      width: 100% ;
+    }
+    button{
+      width: 45px;
+      min-width: 45px;
+      height: 32px;
+      padding: 0;
+    }
+  }
+  a{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000;
+    transition: .3s ease;
+    &:hover{
+      color: #d34c2e;
+    }
+    &+a{
+      margin-left: 15px;
+      &:before{
+        content: '';
+        width: 8px;
+        height: 8px;
+        flex-shrink: 0;
+        border: 2px solid #000000;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+    }
+  }
+}
+.media__socials.media__socials-active{
+  svg {
+    fill: #d34c2e;
+  }
+
+}
+.media{
+  display: flex;
+  align-items: center;
+
+  button{
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  &__link{
+    width: auto;
+    height: 27px;
+    display: block;
+    &+.media__link{
+      margin-left: 25px;
+    }
+    svg{
+      fill: black;
+      transition: .3s ease;
+      &:hover{
+        fill: #D34C2E;
+      }
+    }
+  }
+}
+
+
+.media__socials {
+  position: relative;
+  overflow: hidden;
+  .socials{
+    flex-direction: column;
+    position: absolute;
+    line-height: 10px;
+    top: calc(100% + 0px) ;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    height: 1px;
+    transition: .3s ease
+  }
+  &.media__socials-active{
+    overflow: visible;
+    .socials{
+      padding: 50px 0 0;
+      height: auto;
+      opacity: 1;
+    }
+  }
+  &:hover{
+
+    overflow: visible;
+    .socials{
+      padding: 50px 0 0;
+      height: auto;
+      opacity: 1;
+    }
+  }
+  .socials a+a{
+    margin-left: 0;
+    padding-top: 10px;
+  }
+
+}

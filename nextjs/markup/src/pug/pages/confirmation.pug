@@ -1,0 +1,31 @@
+extends ../layout/main
+
+block variables
+  - var title = 'confirmation страница'
+  - var pageClass = 'confirmation-page'
+
+
+block content
+  .container.container__confirmation.container_mini
+    h3  Оплата прошла успешно!
+    p Вы можете начать читать сейчас или позже. Журналы будут всегда доступны в вашем личном кабинете.
+    .confirmation__page
+      .item__journal
+        .item__journal_img
+          img(src='/assets/img/journ6.png')
+        .item__journal_content
+          .item__journal_title National Geographic Россия
+          .item__journal_number_date <span>№188</span> (Апрель 2019)
+          .btn Скачать номер
+        .mobile_btn_bad_dis
+          .btn Скачать номер
+      .item__journal
+        .item__journal_img
+          img(src='/assets/img/journ6.png')
+        .item__journal_content
+          .item__journal_title National Geographic Россия
+          .item__journal_number_date <span>№188</span> (Апрель 2019)
+          .btn Скачать номер
+        .mobile_btn_bad_dis
+          .btn Скачать номер
+    a(href='#').btn Вернуться

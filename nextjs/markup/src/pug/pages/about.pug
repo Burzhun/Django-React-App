@@ -1,0 +1,69 @@
+extends ../layout/main
+
+block variables
+  - var title = 'About страница'
+  - var pageClass = 'about-page'
+
+
+block content
+  .about__header.grey__wrapp
+    .container
+      h1 NATIONAL GEOGRAPHIC РОССИЯ
+      .about__header_information
+       .about__header_picture
+         img(src='/assets/img/journ3.png')
+         .monik__absolute_single
+           .monik__obloj_project
+             img(src='/assets/img/logo.jpg')
+           img(src='/assets/img/monik_main.png')
+       .about__header_details
+         .info__counts-wrapper
+           .info__count
+             .info__count_title 140 000
+             p экземпляров  в тираже
+           .info__count
+             .info__count_title  900 000
+             p уникальных пользователей
+           .info__count
+             .info__count_title 300 000
+             p подписчиков в соцсетях
+         .socials
+           a(href='#')
+             img(src='/assets/img/icons/socials/fb.svg')
+           a(href='#')
+             img(src='/assets/img/icons/socials/vk.svg')
+           a(href='#')
+             img(src='/assets/img/icons/socials/inst.svg')
+           a(href='#')
+             img(src='/assets/img/icons/socials/twit.svg')
+           a(href='#')
+             img(src='/assets/img/icons/socials/ok.svg')
+           a(href='#')
+             img(src='/assets/img/icons/socials/yout.svg')
+           a(href='#')
+             img(src='/assets/img/icons/socials/rss.svg')
+         .btn.btn-red Читать онлайн
+  .container
+    section.about__text
+      .row
+        p National Geographic — уникальный научно-популярный географический журнал, официальное издание Национального географического общества (США).
+        p Сегодня издание читают более 70 миллионов человек на 32 языках мира. National Geographic публикует беспрецедентные фотографии и эксклюзивные материалы об истории, археологии, науке и культуре. Ядро журнала одинаково для всех стран, что делает National Geographic по-настоящему общемировым изданием.
+        .download__files
+          a(href='#').file.file-eps
+            .file__name Логотип
+          a(href='#').file.file-pdf
+            .file__name Медиакит
+          a(href='#').file.file-pdf
+            .file__name Прайс-лист  на рекламу
+      .row
+        p Издается в России с 2003 года <br>    Периодичность – ежемесячно <br>Сайт:  <a href='www.nat-geo.ru'> www.nat-geo.ru </a>
+        h4 Редакция
+        p Главный редактор – Андрей Паламарчук  Управляющий директор – Ирина Ковалевич
+        h4 КОНТАКТЫ
+        p 127018, Москва, ул. Полковая, 3, стр. 1 <br>    +7 (495) 232-92-92 доб. 2000 <br> Редакция журнала National Geographic <br> <a href='mail:ngm@moscowtimes.org'>ngm@moscowtimes.org</a>
+  include ../modules/new__issue
+
+
+
+
+
